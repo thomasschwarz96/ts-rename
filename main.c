@@ -6,34 +6,44 @@
 // ----------------------------------------------------------------------
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
 #include <unistd.h>
 #include "helpers.h"
 
 // Main program.
 int main (int argc, char* argv[])
 {
-	
+	// Init variables.	
 	int option;
+	bool isNeedle = false;
+	bool isReplace = false;
+	char needle[50];
+	char replace[50];
 
 	while((option = getopt(argc, argv, "hv :n:r:" )) != -1) {
 
 		switch(option) {
 			case 'n':
-				puts("needle");
-				printf("%s \n", optarg);
+				// Set bool and copy argument.
+				isNeedle = true;
+				strcpy(needle, optarg);	
 				break;
 
 			case 'r':
-				puts("replace");
-				printf("%s \n", optarg);	
+				// Set bool and copy argument.
+				isReplace = true;
+				strcpy(replace, optarg);
 				break;
 
 			case 'v':
+				// Show current version.
 				version();
 				break;
 
 			case 'h':
 			case '?':
+				// Show informations. 
 				info();
 				break; 
 
@@ -41,6 +51,13 @@ int main (int argc, char* argv[])
 				break;
 		}
 	}
+
+	if (isNeedle && isReplace) {
+		puts("Replace something...");
+		printf("Needle: %s \n", needle);
+		printf("Replace: %s \n", replace);
+		// to do: replace needle with replace!
+	}	
 
 	return 0;
 }

@@ -9,7 +9,10 @@
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
+#include <dirent.h>
+#include <sys/types.h>
 #include "helpers.h"
+
 
 // Main program.
 int main (int argc, char* argv[])
@@ -21,9 +24,12 @@ int main (int argc, char* argv[])
 	char needle[50];
 	char replace[50];
 
-	while((option = getopt(argc, argv, "hv :n:r:" )) != -1) {
+	DIR *directory;
+	struct dirent *ep;
 
-		switch(option) {
+	while ((option = getopt(argc, argv, "hv :n:r:" )) != -1) {
+
+		switch (option) {
 			case 'n':
 				// Set bool and copy argument.
 				isNeedle = true;
@@ -52,11 +58,30 @@ int main (int argc, char* argv[])
 		}
 	}
 
+	// Check if we have 'needle' and 'replace'.
 	if (isNeedle && isReplace) {
-		puts("Replace something...");
+
 		printf("Needle: %s \n", needle);
 		printf("Replace: %s \n", replace);
-		// to do: replace needle with replace!
+
+		// Read files from current directory.
+		directory = opendir("./");
+
+		// Check if folder contain files.
+		if (directory != NULL) {
+			while (ep = readdir(directory)) {
+				// Check if filename contains needle.
+				if  (strstr(ep->d_name, needle) != NULL) {
+
+					// To Do: rename string! 
+					str_replace(needle, needle, needle);
+					puts(ep->d_name );
+
+				}
+			}
+			(void) closedir(directory);
+		}
+
 	}	
 
 	return 0;

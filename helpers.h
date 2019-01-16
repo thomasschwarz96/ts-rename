@@ -20,5 +20,8 @@ void info();
 // Show the current version.
 void version();
 
+// Replace 'needle' with 'replace' in the 'haystack'.
+char *str_replace(char *needle, char *replace, char *haystack);
+
 #endif
 

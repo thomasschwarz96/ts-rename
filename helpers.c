@@ -39,3 +39,10 @@ void version()
 	printf("Current Version: 0.0.1-Alpha\n");
 }
 
+// Replace 'needle' with 'replace' in the 'haystack'.
+char *str_replace(char *needle, char *replace, char *haystack)
+{
+	puts("Replace something ...");
+}
+
+

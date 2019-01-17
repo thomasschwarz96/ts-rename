@@ -6,6 +6,7 @@
 // ----------------------------------------------------------------------
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
@@ -23,6 +24,8 @@ int main (int argc, char* argv[])
 	bool isReplace = false;
 	char needle[50];
 	char replace[50];
+	char *oldName;
+	char *newName;
 
 	DIR *directory;
 	struct dirent *ep;
@@ -61,9 +64,6 @@ int main (int argc, char* argv[])
 	// Check if we have 'needle' and 'replace'.
 	if (isNeedle && isReplace) {
 
-		printf("Needle: %s \n", needle);
-		printf("Replace: %s \n", replace);
-
 		// Read files from current directory.
 		directory = opendir("./");
 
@@ -73,9 +73,18 @@ int main (int argc, char* argv[])
 				// Check if filename contains needle.
 				if  (strstr(ep->d_name, needle) != NULL) {
 
-					// To Do: rename string! 
-					str_replace(needle, replace, ep->d_name);
-					puts(ep->d_name );
+					// Allocate storage for oldName.
+					oldName = (char*) malloc(strlen(ep->d_name) * sizeof(char));
+
+					// Save oldName.
+					strcpy(oldName, ep->d_name);
+	
+					// Create newName with given options.
+					newName = str_replace(needle, replace, ep->d_name);
+
+					puts(oldName);
+					puts(newName);
+					puts("--");
 
 				}
 			}

@@ -20,6 +20,8 @@ int main (int argc, char* argv[])
 {
 	// Init variables.	
 	int option;
+	int isRenamed;
+	int counter = 0;
 	bool isNeedle = false;
 	bool isReplace = false;
 	char needle[50];
@@ -82,13 +84,19 @@ int main (int argc, char* argv[])
 					// Create newName with given options.
 					newName = str_replace(needle, replace, ep->d_name);
 
-					puts(oldName);
-					puts(newName);
-					puts("--");
+					// Rename the file.
+					isRenamed = rename(oldName, newName);
 
+					// Check if renaming was successful.
+					if (!isRenamed)
+					{
+						printf("File %s renamed to %s.\n", oldName, newName);
+						counter++;
+					}
 				}
 			}
 			(void) closedir(directory);
+			printf("%i Files renamed.\n", counter);
 		}
 
 	}	

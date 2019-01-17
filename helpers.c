@@ -6,6 +6,8 @@
 // ----------------------------------------------------------------------
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "helpers.h"
 
 // Show's the name in ASCII art.
@@ -42,7 +44,43 @@ void version()
 // Replace 'needle' with 'replace' in the 'haystack'.
 char *str_replace(char *needle, char *replace, char *haystack)
 {
-	puts("Replace something ...");
+	char *tempString, *searchStart;
+    	int len=0;
+
+	// Check if 'needle' is in 'haystack'.
+	searchStart = strstr(haystack, needle);
+	if(searchStart == NULL)
+	{
+	return haystack;
+	}
+
+	// Allocate storage.
+	tempString = (char*) malloc(strlen(haystack) * sizeof(char));
+	if(tempString == NULL) {
+
+	return NULL;
+	}
+
+	// Create temporarily copy.
+	strcpy(tempString, haystack);
+
+	// Replace first part.
+	len = searchStart - haystack;
+	haystack[len] = '\0';
+
+	// Replace second part.
+	strcat(haystack, replace);
+
+	// Add third part.
+	len += strlen(needle);
+	strcat(haystack, (char*)tempString+len);
+
+	// Deallocate storage.
+	free(tempString);
+
+	printf("New String: %s \n", haystack);
+
+	return haystack;
 }
 
 

@@ -51,14 +51,14 @@ char *str_replace(char *needle, char *replace, char *haystack)
 	searchStart = strstr(haystack, needle);
 	if(searchStart == NULL)
 	{
-	return haystack;
+		return haystack;
 	}
 
 	// Allocate storage.
 	tempString = (char*) malloc(strlen(haystack) * sizeof(char));
-	if(tempString == NULL) {
-
-	return NULL;
+	if(tempString == NULL) 
+	{
+		return NULL;
 	}
 
 	// Create temporarily copy.
@@ -82,5 +82,6 @@ char *str_replace(char *needle, char *replace, char *haystack)
 
 	return haystack;
 }
+
 
 

@@ -45,7 +45,7 @@ void version()
 char *str_replace(char *needle, char *replace, char *haystack)
 {
 	char *tempString, *searchStart;
-    	int len=0;
+   	int len=0;
 
 	// Check if 'needle' is in 'haystack'.
 	searchStart = strstr(haystack, needle);
@@ -77,8 +77,6 @@ char *str_replace(char *needle, char *replace, char *haystack)
 
 	// Deallocate storage.
 	free(tempString);
-
-	printf("New String: %s \n", haystack);
 
 	return haystack;
 }

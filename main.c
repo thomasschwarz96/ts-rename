@@ -74,7 +74,7 @@ int main (int argc, char* argv[])
 				if  (strstr(ep->d_name, needle) != NULL) {
 
 					// To Do: rename string! 
-					str_replace(needle, needle, needle);
+					str_replace(needle, replace, ep->d_name);
 					puts(ep->d_name );
 
 				}

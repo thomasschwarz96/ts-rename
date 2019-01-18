@@ -5,11 +5,11 @@ Terminal program to rename files and folders.
 Coming soon!
 
 ## Options
- **-h** Display the simple help and exit
- **-v** Display the current version and exit
+ **-h** Display the simple help and exit  
+ **-v** Display the current version and exit  
 
- **-n** Needle/String what should be replaced
- **-r** String for replacing the needle
+ **-n** Needle/String what should be replaced  
+ **-r** String for replacing the needle  
 
 <pre>
   _____ _                      ___     _                       ___  __ 

@@ -11,8 +11,7 @@ Coming soon!
  **-n** Needle/String what should be replaced  
  **-r** String for replacing the needle  
 
-  
-  
+<br />
 <pre>
   _____ _                      ___     _                       ___  __ 
  |_   _| |_  ___ _ __  __ _ __/ __| __| |___ __ ____ _ _ _ ___/ _ \/ / 

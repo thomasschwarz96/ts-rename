@@ -10,3 +10,6 @@ install:
 uninstall:
 	rm -f $(DIR)$(NAME)
 
+update: uninstall install
+
+

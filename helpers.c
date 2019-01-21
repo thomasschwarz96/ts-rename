@@ -38,7 +38,7 @@ void info()
 void version()
 {
 	showName();
-	printf("Current Version: 0.0.1-Alpha\n");
+	printf("Current Version: 0.0.1\n");
 }
 
 // Replace 'needle' with 'replace' in the 'haystack'.

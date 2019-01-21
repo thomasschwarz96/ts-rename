@@ -14,7 +14,7 @@ Terminal program to rename files and folders.
 ## Update
 > Download new .zip-File  
 > cd Downloads  
-> unzip ts-rename-master.zip
+> unzip ts-rename-master.zip  
 > sudo make update  
 
 ## Options

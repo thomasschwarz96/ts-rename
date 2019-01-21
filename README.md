@@ -15,6 +15,7 @@ Terminal program that allows you to rename lots of files and folders quickly and
 > Download new .zip-File  
 > cd Downloads  
 > unzip ts-rename-master.zip  
+> cd ts-rename-master  
 > sudo make update  
 
 ## Options

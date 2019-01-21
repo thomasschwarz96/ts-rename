@@ -1,5 +1,5 @@
 # TS-Rename
-Terminal program to rename files and folders.
+Terminal program that allows you to rename lots of files and folders quickly and conveniently.
 
 ## Install
 > cd Downloads  

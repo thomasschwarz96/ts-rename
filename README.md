@@ -11,6 +11,12 @@ Terminal program to rename files and folders.
 > cd ts-rename-master  
 > sudo make uninstall  
 
+## Update
+> Download new .zip-File  
+> cd Downloads  
+> unzip ts-rename-master.zip
+> sudo make update  
+
 ## Options
   **-h** Display the simple help and exit  
   **-v** Display the current version and exit  

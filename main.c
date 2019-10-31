@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
 #include <dirent.h>
@@ -22,8 +21,8 @@ int main(int argc, char *argv[])
     int option;
     int isRenamed;
     int counter = 0;
-    bool isNeedle = false;
-    bool isReplace = false;
+    int isNeedle = 0;
+    int isReplace = 0;
     char needle[50];
     char replace[50];
     char *oldName;
@@ -34,18 +33,17 @@ int main(int argc, char *argv[])
 
     while ((option = getopt(argc, argv, "hv :n:r:")) != -1)
     {
-
         switch (option)
         {
             case 'n':
                 // Set bool and copy argument.
-                isNeedle = true;
+                isNeedle = 1;
                 strcpy(needle, optarg);
                 break;
 
             case 'r':
                 // Set bool and copy argument.
-                isReplace = true;
+                isReplace = 1;
                 strcpy(replace, optarg);
                 break;
 
@@ -68,7 +66,6 @@ int main(int argc, char *argv[])
     // Check if we have 'needle' and 'replace'.
     if (isNeedle && isReplace)
     {
-
         // Read files from current directory.
         directory = opendir("./");
 

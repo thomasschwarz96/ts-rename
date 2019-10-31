@@ -13,72 +13,72 @@
 // Show's the name in ASCII art.
 void showName()
 {
-	printf("-- TS-Rename --\n");
+    printf("-- TS-Rename --\n");
 }
 
 // Show usage infos.
 void showUsage()
 {
-	printf("Usage: tsrename [options]\n");
-	printf("\t -h \t Display the simple help and exit\n");
-	printf("\t -v \t Display the current version and exit\n");
-	printf("\n");
-	printf("\t -n \t Needle/String what should be replaced\n");
-	printf("\t -r \t String for replacing the needle\n");
+    printf("Usage: tsrename [options]\n");
+    printf("\t -h \t Display the simple help and exit\n");
+    printf("\t -v \t Display the current version and exit\n");
+    printf("\n");
+    printf("\t -n \t Needle/String what should be replaced\n");
+    printf("\t -r \t String for replacing the needle\n");
 }
 
 // Show help informations.
 void info()
 {
-	showName();
-	showUsage();
+    showName();
+    showUsage();
 }
 
 // Show the current version.
 void version()
 {
-	showName();
-	printf("Current Version: 0.0.1\n");
+    showName();
+    printf("Current Version: 0.0.1\n");
 }
 
 // Replace 'needle' with 'replace' in the 'haystack'.
 char *str_replace(char *needle, char *replace, char *haystack)
 {
-	char *tempString, *searchStart;
-   	int len=0;
+    char *tempString, *searchStart;
+    int len = 0;
 
-	// Check if 'needle' is in 'haystack'.
-	searchStart = strstr(haystack, needle);
-	if(searchStart == NULL)
-	{
-		return haystack;
-	}
+    // Check if 'needle' is in 'haystack'.
+    searchStart = strstr(haystack, needle);
+    if (searchStart == NULL)
+    {
+        return haystack;
+    }
 
-	// Allocate storage.
-	tempString = (char*) malloc(strlen(haystack) * sizeof(char));
-	if(tempString == NULL) 
-	{
-		return NULL;
-	}
+    // Allocate storage.
+    tempString = (char *) malloc(strlen(haystack) * sizeof(char));
+    if (tempString == NULL)
+    {
+        return NULL;
+    }
 
-	// Create temporarily copy.
-	strcpy(tempString, haystack);
+    // Create temporarily copy.
+    strcpy(tempString, haystack);
 
-	// Replace first part.
-	len = searchStart - haystack;
-	haystack[len] = '\0';
+    // Replace first part.
+    len = searchStart - haystack;
+    haystack[len] = '\0';
 
-	// Replace second part.
-	strcat(haystack, replace);
+    // Replace second part.
+    strcat(haystack, replace);
 
-	// Add third part.
-	len += strlen(needle);
-	strcat(haystack, (char*)tempString+len);
+    // Add third part.
+    len += strlen(needle);
+    strcat(haystack, (char *) tempString + len);
 
-	// Deallocate storage.
-	free(tempString);
+    // Deallocate storage.
+    free(tempString);
 
-	return haystack;
+    return haystack;
 }
 
 

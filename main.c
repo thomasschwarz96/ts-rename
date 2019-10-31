@@ -16,91 +16,97 @@
 
 
 // Main program.
-int main (int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-	// Init variables.	
-	int option;
-	int isRenamed;
-	int counter = 0;
-	bool isNeedle = false;
-	bool isReplace = false;
-	char needle[50];
-	char replace[50];
-	char *oldName;
-	char *newName;
+    // Init variables.
+    int option;
+    int isRenamed;
+    int counter = 0;
+    bool isNeedle = false;
+    bool isReplace = false;
+    char needle[50];
+    char replace[50];
+    char *oldName;
+    char *newName;
 
-	DIR *directory;
-	struct dirent *ep;
+    DIR *directory;
+    struct dirent *ep;
 
-	while ((option = getopt(argc, argv, "hv :n:r:" )) != -1) {
+    while ((option = getopt(argc, argv, "hv :n:r:")) != -1)
+    {
 
-		switch (option) {
-			case 'n':
-				// Set bool and copy argument.
-				isNeedle = true;
-				strcpy(needle, optarg);	
-				break;
+        switch (option)
+        {
+            case 'n':
+                // Set bool and copy argument.
+                isNeedle = true;
+                strcpy(needle, optarg);
+                break;
 
-			case 'r':
-				// Set bool and copy argument.
-				isReplace = true;
-				strcpy(replace, optarg);
-				break;
+            case 'r':
+                // Set bool and copy argument.
+                isReplace = true;
+                strcpy(replace, optarg);
+                break;
 
-			case 'v':
-				// Show current version.
-				version();
-				break;
+            case 'v':
+                // Show current version.
+                version();
+                break;
 
-			case 'h':
-			case '?':
-				// Show informations. 
-				info();
-				break; 
+            case 'h':
+            case '?':
+                // Show informations.
+                info();
+                break;
 
-			default:
-				break;
-		}
-	}
+            default:
+                break;
+        }
+    }
 
-	// Check if we have 'needle' and 'replace'.
-	if (isNeedle && isReplace) {
+    // Check if we have 'needle' and 'replace'.
+    if (isNeedle && isReplace)
+    {
 
-		// Read files from current directory.
-		directory = opendir("./");
+        // Read files from current directory.
+        directory = opendir("./");
 
-		// Check if folder contain files.
-		if (directory != NULL) {
-			while (ep = readdir(directory)) {
-				// Check if filename contains needle.
-				if  (strstr(ep->d_name, needle) != NULL) {
+        // Check if folder contain files.
+        if (directory != NULL)
+        {
+            while (ep = readdir(directory))
+            {
+                // Check if filename contains needle.
+                if (strstr(ep->d_name, needle) != NULL)
+                {
 
-					// Allocate storage for oldName.
-					oldName = (char*) malloc(strlen(ep->d_name) * sizeof(char));
+                    // Allocate storage for oldName.
+                    oldName = (char *) malloc(strlen(ep->d_name) * sizeof(char));
 
-					// Save oldName.
-					strcpy(oldName, ep->d_name);
-	
-					// Create newName with given options.
-					newName = str_replace(needle, replace, ep->d_name);
+                    // Save oldName.
+                    strcpy(oldName, ep->d_name);
 
-					// Rename the file.
-					isRenamed = rename(oldName, newName);
+                    // Create newName with given options.
+                    newName = str_replace(needle, replace, ep->d_name);
 
-					// Check if renaming was successful.
-					if (!isRenamed)
-					{
-						printf("File %s renamed to %s.\n", oldName, newName);
-						counter++;
-					}
-				}
-			}
-			(void) closedir(directory);
-			printf("%i Files renamed.\n", counter);
-		}
+                    // Rename the file.
+                    isRenamed = rename(oldName, newName);
 
-	}	
+                    // Check if renaming was successful.
+                    if (!isRenamed)
+                    {
+                        printf("File %s renamed to %s.\n", oldName, newName);
+                        counter++;
+                    }
+                }
+            }
+            (void) closedir(directory);
+            printf("%i Files renamed.\n", counter);
+        }
 
-	return 0;
+    }
+
+    return 0;
 }
 

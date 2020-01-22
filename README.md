@@ -25,6 +25,10 @@ If you got some problems, improvements or hints let me know. I appreciate it.
 
   **-n** Needle/String what should be replaced  
   **-r** String for replacing the needle  
+  
+## Other
+If you got some problems, improvements or changes let me know.  
+I appreciate every single help!  
 
 <br />
 <pre>

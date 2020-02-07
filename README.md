@@ -26,6 +26,9 @@ If you got some problems, improvements or hints let me know. I appreciate it.
   **-n** Needle/String what should be replaced  
   **-r** String for replacing the needle  
   
+## Contributing
+If you want to contribute create an issue or an pull request.
+  
 ## Other
 If you got some problems, improvements or changes let me know.  
 I appreciate every single help!  

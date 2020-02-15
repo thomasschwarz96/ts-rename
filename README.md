@@ -1,6 +1,5 @@
 # TS-Rename
 Terminal program that allows you to rename lots of files and folders quickly and conveniently.  
-If you got some problems, improvements or hints let me know. I appreciate it.
 
 ## Install
 > cd Downloads  

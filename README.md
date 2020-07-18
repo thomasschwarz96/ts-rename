@@ -26,8 +26,5 @@ Terminal program that allows you to rename lots of files and folders quickly and
   **-r** String for replacing the needle  
   
 ## Contributing
-If you want to contribute create an issue or an pull request.
-  
-## Other
-If you got some problems, improvements or changes let me know.  
+If you want to contribute create an issue or an pull request.  
 I appreciate every single help!  

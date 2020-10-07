@@ -28,3 +28,13 @@ Terminal program that allows you to rename lots of files and folders quickly and
 ## Contributing
 If you want to contribute create an issue or an pull request.  
 I appreciate every single help!  
+
+----
+
+#### Free Software Foundation
+
+<img src="https://static.fsf.org/nosvn/associate/crm/5002414.png" />
+
+I'm a member of the Free Software Foundation. Without GNU/Linux and all the great work from people all over the world producing free software, all my projects would not have been possible.
+
+Consider joining the FSF, [here is why](https://my.fsf.org/join?referrer=5002414).
